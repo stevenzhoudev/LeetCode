@@ -54,8 +54,15 @@ class Solution {
 public:
     vector<int> twoSum(vector<int>& nums, int target) {
         vector<int> res;
-        for (int i : nums) {
-           cout << i << endl;
+        int length = nums.size();
+        for (int i = 0; i < length - 1; ++i) {
+            for (int j = i + 1; j < length; ++j) {
+                if (nums[i] + nums[j] == target) {
+                    res.push_back(i);
+                    res.push_back(j);
+                    return res;
+                }
+            }
         }
         return res;
     }
@@ -69,6 +76,6 @@ int main()
     vector<int> nums{7, 1, 5, 3, 6, 4};
     int target = 9;
     vector<int> ans = s.twoSum(nums, target);
-//    cout << ans[0] << ans[1] <<endl;
+    cout << ans[0] << ans[1] <<endl;
     cout << "Hello LeetCode" << endl;
 }
